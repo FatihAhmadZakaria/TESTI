@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
 
-  const ProductCard({Key? key, required this.product}) : super(key: key);
+  const ProductCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: Column(
         children: [
           Expanded(
@@ -27,11 +27,11 @@ class ProductCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(product['name'],
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
                     Text(product['price']),
                   ],
                 ),
-                Text(product['sold'], style: TextStyle(color: Colors.grey)),
+                Text(product['sold'], style: const TextStyle(color: Colors.grey)),
               ],
             ),
           ),
@@ -45,12 +45,12 @@ class ProductCard extends StatelessWidget {
 class GridBuilderTwo extends StatelessWidget {
   final List<Map<String, dynamic>> items;
 
-  const GridBuilderTwo({Key? key, required this.items}) : super(key: key);
+  const GridBuilderTwo({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 0.85,
       ),
