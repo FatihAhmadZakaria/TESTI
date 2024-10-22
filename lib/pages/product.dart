@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:testi/util/fun_collection.dart';
 
 class Product extends StatelessWidget {
   const Product({super.key});
@@ -83,54 +84,7 @@ class ProductList extends StatelessWidget {
       appBar: AppBar(
         title: Text('Daftar Produk'),
       ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.75, // Sesuaikan rasio untuk tampilan
-        ),
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          return ProductCard(product: products[index]);
-        },
-      ),
-    );
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  final Map<String, dynamic> product;
-
-  const ProductCard({Key? key, required this.product}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Image.network(product['image'], fit: BoxFit.cover),
-          ),
-          Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(product['name'],
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text(product['price']),
-                  ],
-                ),
-                Text(product['sold'], style: TextStyle(color: Colors.grey)),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: GridBuilderTwo(items: products), // Menggunakan GridBuilderTwo dari fun_collection.dart
     );
   }
 }
