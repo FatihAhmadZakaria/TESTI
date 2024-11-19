@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:testi/pages/home.dart';
 import 'package:testi/pages/product.dart';
+import 'package:testi/pages/user_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -28,6 +29,7 @@ class _NavbarState extends State<Navbar> {
   final List _pages = [
     Homepage(),
     Product(),
+    UserPage()
   ];
 
   @override
@@ -49,6 +51,9 @@ class _NavbarState extends State<Navbar> {
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_bag),
           label: 'Shop'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.verified_user_rounded),
+          label: 'User'),
         ],
       ),
     );
